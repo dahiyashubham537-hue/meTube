@@ -3,7 +3,7 @@ const API_KEY = process.env.REACT_APP_YT_API_KEY;
 export const YOUTUBE_LINK = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&maxResults=49&regionCode=IN&key=${API_KEY}`;
 
 export const YOUTUBE_SEARCH_API =
-  "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+  "https://corsproxy.io/?https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 
 const nameList = [
   "Aarav",
