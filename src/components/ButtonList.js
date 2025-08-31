@@ -31,12 +31,12 @@ const ButtonList = () => {
       navigate(`/results?search_query=${label}`);
     }
   };
+  const API_KEY = process.env.REACT_APP_YT_API_KEY;
   const getSearchResults = async (searchQuery) => {
     const data = await fetch(
-      "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" +
-        searchQuery +
-        "&key=AIzaSyDdkD3MGs-C8Bqw1a0B0mYhNZ0KxzmZHlY"
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${searchQuery}&key=${API_KEY}`
     );
+
     const json = await data.json();
     const searchVideos = json.items.map((item) => ({
       id: item.id.videoId,
