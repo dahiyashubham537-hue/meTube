@@ -38,12 +38,23 @@ const Header = () => {
     dispatch(toggleSidebar());
   };
   const getSearchQuery = async () => {
-    const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+    const data = await fetch(
+      "https://www.searchapi.io/api/v1/search?engine=google_autocomplete&q=" +
+        searchQuery +
+        "&client=gws-wiz&hl=en&gl=us&api_key=" +
+        process.env.REACT_APP_GOOGLE_API_KEY
+    );
     const json = await data.json();
-    setSuggestions(json[1]);
+    const suggestions = json.suggestions.map((item) => ({
+      value: item.value, // always exists
+    }));
+
+    console.log(suggestions);
+    const suggestionResults = suggestions.map((s) => s.value);
+    setSuggestions(suggestionResults);
     dispatch(
       cacheResults({
-        [searchQuery]: json[1],
+        [searchQuery]: suggestionResults,
       })
     );
   };
