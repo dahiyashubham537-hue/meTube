@@ -18,7 +18,7 @@ const Watch = () => {
   const getNestedComments = async () => {
     const client = new OpenAI({
       baseURL: "https://router.huggingface.co/v1",
-      apiKey: import.meta.env.REACT_HF_API_KEY,
+      apiKey: import.meta.env.REACT_APP_HF_API_KEY,
       dangerouslyAllowBrowser: true,
     });
 
