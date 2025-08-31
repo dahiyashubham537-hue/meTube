@@ -133,7 +133,7 @@ const Header = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onFocus={() => setShowSuggestions(true)}
-              onBlur={() => setShowSuggestions(false)}
+              onBlur={() => setTimeout(() => setShowSuggestions(false), 100)}
             />
             <button type="submit" className="absolute right-4 top-2 ">
               <img
