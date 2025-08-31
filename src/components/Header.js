@@ -150,6 +150,7 @@ const Header = () => {
                   <li
                     className="cursor-pointer"
                     onMouseDown={() => {
+                      e.preventDefault(); // prevents input blur
                       setSearchQuery(suggestion);
                       handleSearchClick();
                     }}
